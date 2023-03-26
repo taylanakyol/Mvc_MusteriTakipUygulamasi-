@@ -1,0 +1,55 @@
+﻿@using Mvc_MusteriTakipUygulaması.Models
+@model List<Admin>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_MusteriTakipLayout.cshtml";
+}
+
+
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="row">
+            <div class="col-lg-6 mx-auto">
+                <div class="card">
+                    <div class="card-header">
+                        <strong class="card-title">Kullanıcı Listesi</strong>
+                    </div>
+                    <div class="table-stats order-table ov-h">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>İsim</th>
+                                    <th>Soyisim</th>
+                                    <th>Firma</th>
+                                    <th>Kullanıcı Adı</th>
+                                    <th>Şifre</th>
+                                    <th>Rolü</th>
+                                    <th>Sil</th>
+                                    <th>Güncelle</th>
+                                </tr>
+                            </thead>
+
+                            @foreach (var item in Model)
+                            {
+                                <tbody>
+                                    <tr>
+                                        <td> @item.Name </td>
+                                        <td> @item.Surname </td>
+                                        <td> @item.Company </td>
+                                        <td> <span style="text-transform: lowercase">@item.UserName</span> </td>
+                                        <td> @item.Password </td>
+                                        <td> @item.AdminRole </td>
+                                        <td> <a href="#" class="badge badge-danger">Sil</a> </td>
+                                        <td> <a href="#" class="badge badge-complete">Güncelle</a> </td>
+                                    </tr>
+                                </tbody>
+                            }
+                        </table>
+                    </div>
+                </div>
+                <a asp-controller="UserList" asp-action="AddUser" class="btn btn-secondary">Yeni Kullanıcı Ekle</a>
+            </div>
+        </div>
+    </div><!-- .animated -->
+</div>
