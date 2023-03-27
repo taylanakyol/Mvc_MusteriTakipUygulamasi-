@@ -1,0 +1,194 @@
+﻿@model Mvc_MusteriTakipUygulaması.Models.Client
+
+@{
+    ViewData["Title"] = "ClientDetailTable";
+    Layout = "~/Views/Shared/_MusteriTakipLayout.cshtml";
+}
+
+<br />
+
+
+
+<div class="col-lg-6 mx-auto mt-3">
+    <div class="card">
+        <div class="card-header">
+            <strong>Müşteri Bilgileri</strong>
+        </div>
+        <div class="card-body card-block">
+            <form action="#" method="post" enctype="multipart/form-data" class="form-horizontal">
+
+
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label asp-for="Unvan" class=" form-control-label"> Unvan </label>
+                    </div>
+                    <div class="col-12 col-md-9">
+                        <input asp-for="Unvan" readonly="" type="text" name="text-input" class="form-control">
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label asp-for="Marka" class=" form-control-label"> Marka </label>
+                    </div>
+                    <div class="col-12 col-md-9">
+                        <input asp-for="Marka" readonly="" type="text" name="text-input" class="form-control">
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label asp-for="VergiDairesi" class=" form-control-label"> Vergi Dairesi </label>
+                    </div>
+                    <div class="col-12 col-md-9">
+                        <input asp-for="VergiDairesi" readonly="" type="text" name="text-input" class="form-control">
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label asp-for="VergiNo" class=" form-control-label"> Vergi No </label>
+                    </div>
+                    <div class="col-12 col-md-9">
+                        <input asp-for="VergiNo" readonly="" type="text" name="text-input" class="form-control">
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label asp-for="WebSitesi" class=" form-control-label"> Web Sitesi </label>
+                    </div>
+                    <div class="col-12 col-md-9">
+                        <input asp-for="WebSitesi" readonly="" type="text" name="text-input" class="form-control">
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label asp-for="Email" class=" form-control-label"> Email </label>
+                    </div>
+                    <div class="col-12 col-md-9">
+                        <input asp-for="Email" readonly="" type="text" name="text-input" class="form-control">
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label asp-for="Adres" class=" form-control-label"> Adres </label>
+                    </div>
+                    <div class="col-12 col-md-9">
+                        <input asp-for="Adres" readonly="" type="text" name="text-input" class="form-control">
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label asp-for="TelNo" class=" form-control-label"> Telefon </label>
+                    </div>
+                    <div class="col-12 col-md-9">
+                        <input asp-for="TelNo" readonly="" type="text" name="text-input" class="form-control">
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label asp-for="ImzaYetkilisiAdiSoyadi1" class=" form-control-label"> İmza Yetkilisi-1 </label>
+                    </div>
+                    <div class="col-12 col-md-9">
+                        <input asp-for="ImzaYetkilisiAdiSoyadi1" readonly="" type="text" name="text-input" class="form-control">
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label asp-for="ImzaYetkilisiAdiSoyadi2" class=" form-control-label"> İmza Yetkilisi-2 </label>
+                    </div>
+                    <div class="col-12 col-md-9">
+                        <input asp-for="ImzaYetkilisiAdiSoyadi2" readonly="" type="text" name="text-input" class="form-control">
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label asp-for="ImzaYetkilisiAdiSoyadi3" class=" form-control-label"> İmza Yetkilisi-3 </label>
+                    </div>
+                    <div class="col-12 col-md-9">
+                        <input asp-for="ImzaYetkilisiAdiSoyadi3" readonly="" type="text" name="text-input" class="form-control">
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label asp-for="ImzaYetkilisiMail1" class=" form-control-label"> İmza Yetkilisi Maili-1 </label>
+                    </div>
+                    <div class="col-12 col-md-9">
+                        <input asp-for="ImzaYetkilisiMail1" readonly="" type="text" name="text-input" class="form-control">
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label asp-for="ImzaYetkilisiMail2" class=" form-control-label"> İmza Yetkilisi Maili-2 </label>
+                    </div>
+                    <div class="col-12 col-md-9">
+                        <input asp-for="ImzaYetkilisiMail2" readonly="" type="text" name="text-input" class="form-control">
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label asp-for="ImzaYetkilisiMail3" class=" form-control-label"> İmza Yetkilisi Maili-3 </label>
+                    </div>
+                    <div class="col-12 col-md-9">
+                        <input asp-for="ImzaYetkilisiMail3" readonly="" type="text" name="text-input" class="form-control">
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label asp-for="IletisimYetkilisiAdiSoyadi1" class=" form-control-label"> İletişim Yetkilisi-1 </label>
+                    </div>
+                    <div class="col-12 col-md-9">
+                        <input asp-for="IletisimYetkilisiAdiSoyadi1" readonly="" type="text" name="text-input" class="form-control">
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label asp-for="IletisimYetkilisiAdiSoyadi2" class=" form-control-label"> İletişim Yetkilisi-2 </label>
+                    </div>
+                    <div class="col-12 col-md-9">
+                        <input asp-for="IletisimYetkilisiAdiSoyadi2" readonly="" type="text" name="text-input" class="form-control">
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label asp-for="IletisimYetkilisiAdiSoyadi3" class=" form-control-label"> İletişim Yetkilisi-3 </label>
+                    </div>
+                    <div class="col-12 col-md-9">
+                        <input asp-for="IletisimYetkilisiAdiSoyadi3" readonly="" type="text" name="text-input" class="form-control">
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label asp-for="Tarih" class=" form-control-label"> Tarih </label>
+                    </div>
+                    <div class="col-12 col-md-9">
+                        <input asp-for="Tarih" readonly="" type="date" name="text-input" class="form-control">
+                    </div>
+                </div>
+
+            </form>
+
+
+
+        </div>
+        <a class="mx-auto color-red" href="/Islemler/Index/">Geri dön</a>
+        <br />
+    </div>
+
+</div>
+
+<br />

@@ -9,6 +9,7 @@ namespace Mvc_MusteriTakipUygulaması.Models
         [Key]
         public int MusteriID { get; set; }
 
+        public string Marka { get; set; }
         public string Unvan { get; set; }
 
         public string VergiNo { get; set; }
@@ -40,6 +41,8 @@ namespace Mvc_MusteriTakipUygulaması.Models
         public string? IletisimYetkilisiAdiSoyadi2 { get; set; }
 
         public string? IletisimYetkilisiAdiSoyadi3 { get; set; }
+
+        public DateTime Tarih { get; set; }
 
     }
 }

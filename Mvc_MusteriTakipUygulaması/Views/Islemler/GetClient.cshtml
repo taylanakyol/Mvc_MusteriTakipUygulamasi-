@@ -1,0 +1,105 @@
+﻿@model Mvc_MusteriTakipUygulaması.Models.Client
+
+@{
+    ViewData["Title"] = "GetClient";
+    Layout = "~/Views/Shared/_MusteriTakipLayout.cshtml";
+}
+
+<div class="content">
+    <form method="post">
+        <div class="col-lg-6 mx-auto">
+            <div class="card">
+                <div class="card-header"><strong>Kullanıcı Ekleme Formu</strong></div>
+                <div class="card-body card-block">
+                    <div class="form-group">
+                        <label asp-for="MusteriID" class=" form-control-label"> <strong>ID</strong> </label>
+                        <input readonly="" asp-for="MusteriID" type="text" class="form-control">
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <label asp-for="Marka" class=" form-control-label"> <strong>Marka</strong> </label>
+                        <input asp-for="Marka" type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Unvan" class=" form-control-label"> <strong>Unvan</strong> </label>
+                        <input asp-for="Unvan" type="text" class="form-control" >
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="VergiNo" class=" form-control-label"><strong>Vergi No</strong></label>
+                        <input asp-for="VergiNo" type="text"  class="form-control" >
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="VergiDairesi" class=" form-control-label"><strong>Vergi Dairesi</strong></label>
+                        <input asp-for="VergiDairesi" type="text"  class="form-control" >
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="TelNo" class=" form-control-label"><strong>Telefon Numarası</strong></label>
+                        <input asp-for="TelNo" type="text"  class="form-control" >
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Adres" class=" form-control-label"><strong>Adres</strong></label>
+                        <input asp-for="Adres" type="text"  class="form-control" >
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="WebSitesi" class=" form-control-label"><strong>Web Sitesi</strong></label>
+                        <input asp-for="WebSitesi" type="text" placeholder="Web sitesini giriniz" class="form-control" required="">
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Email" class=" form-control-label"><strong>Email</strong></label>
+                        <input asp-for="Email" type="text"  class="form-control" >
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ImzaYetkilisiAdiSoyadi1" class=" form-control-label"><strong>İmza Yetkilisi Adı Soyadı</strong></label>
+                        <input asp-for="ImzaYetkilisiAdiSoyadi1" type="text"  class="form-control" >
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ImzaYetkilisiAdiSoyadi2" class=" form-control-label"><strong>İmza Yetkilisi Adı Soyadı</strong></label>
+                        <input asp-for="ImzaYetkilisiAdiSoyadi2" type="text"  class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ImzaYetkilisiAdiSoyadi3" class=" form-control-label"><strong>İmza Yetkilisi Adı Soyadı</strong></label>
+                        <input asp-for="ImzaYetkilisiAdiSoyadi3" type="text"  class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ImzaYetkilisiMail1" class=" form-control-label"><strong>İmza Yetkilisi Maili</strong></label>
+                        <input asp-for="ImzaYetkilisiMail1" type="text"  class="form-control" >
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ImzaYetkilisiMail2" class=" form-control-label"><strong>İmza Yetkilisi Maili</strong></label>
+                        <input asp-for="ImzaYetkilisiMail2" type="text"  class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ImzaYetkilisiMail3" class=" form-control-label"><strong>İmza Yetkilisi Maili</strong></label>
+                        <input asp-for="ImzaYetkilisiMail3" type="text"  class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="IletisimYetkilisiAdiSoyadi1" class=" form-control-label"><strong>İletişim Yetkilisi</strong></label>
+                        <input asp-for="IletisimYetkilisiAdiSoyadi1" type="text"  class="form-control" >
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="IletisimYetkilisiAdiSoyadi2" class=" form-control-label"><strong>İletişim Yetkilisi</strong></label>
+                        <input asp-for="IletisimYetkilisiAdiSoyadi2" type="text"  class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="IletisimYetkilisiAdiSoyadi3" class=" form-control-label"><strong>İletişim Yetkilisi</strong></label>
+                        <input asp-for="IletisimYetkilisiAdiSoyadi3" type="text"  class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Tarih" class=" form-control-label"><strong>İş Bitiş Tarihi</strong></label>
+                        <input asp-for="Tarih" type="date"  class="form-control">
+                    </div>
+                </div>
+                <button asp-controller="Islemler" asp-action="UpdateClient" type="submit" class="btn btn-info mt-3 align-items-center">Güncelle</button>
+
+            </div>
+
+        </div>
+
+
+    </form>
+
+
+</div>
+
