@@ -89,7 +89,7 @@ namespace Mvc_MusteriTakipUygulaması.Controllers
 
         public IActionResult WorkList()
         {
-            var work = c.WorkLists.ToList();
+            var work = c.WorkLists.Include(x => x.Client).ToList();
             return View(work);
         }
 

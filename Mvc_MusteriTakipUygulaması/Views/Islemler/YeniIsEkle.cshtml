@@ -1,14 +1,20 @@
-﻿@model Mvc_MusteriTakipUygulaması.Models.WorkList
+﻿    @model Mvc_MusteriTakipUygulaması.Models.WorkList
 
 @{
     ViewData["Title"] = "YeniIsEkle";
     Layout = "~/Views/Shared/_MusteriTakipLayout.cshtml";
+
+    if(ViewBag.ClientId == null)
+    {
+        ViewBag.ClientId = 0;
+    }
+
 }
 
 
 
 <div class="content">
-    <formz method="post">
+    <form method="post">
         <input asp-for="MusteriID" type="hidden" placeholder="Tarih giriniz" class="form-control" required="">
         <div class="col-lg-6 mx-auto">
             <div class="card">
@@ -17,7 +23,7 @@
 
                     <div class="form-group">
                         <label class=" form-control-label"> <strong>Firma</strong> </label>
-                        <select name="firmList" id="cmbFirmList">
+                        <select class="form-control" name="firmList" id="cmbFirmList">
                         </select>
                     </div>
 
@@ -63,7 +69,7 @@
         </div>
 
 
-    </formz>
+    </form>
 
 
 </div>
@@ -72,26 +78,34 @@
 @section Scripts{
 
     <script>
-        $(document).ready(function () {
+
+        jQuery(document).ready(function () {
             GetClientList()
         });
 
         function GetClientList() {
-            $.ajax({
-                url: '/Islemler/GetClientList',
-                success: function (dt) {
-                    if (dt != undefined || dt != null) {
-                        $('#cmbFirmList').html('');
+            jQuery.ajax({
+                url: "/Islemler/GetClientList",
+                type: 'GET',
+                success: function (res) {
+                    if (res != undefined || res != null) {
+                        jQuery('#cmbFirmList').html('');
 
-                        $.each(dt, function (index, value) {
-                            $('#cmbFirmList').append('<option value="' + value.Id + '"> ' + value.ClientName + ' </option> ');
+                        console.log(res)
+
+                        jQuery.each(res, function (index, value) {
+                            jQuery('#cmbFirmList').append('<option value="' + value.id + '"> ' + value.clientName + ' </option> ');
                         })
                     }
-                },
-                error: function (err) {
-                    console.log(err)
                 }
-            })
+            });
         }
+
+        jQuery('#cmbFirmList').on('change', function(){
+            jQuery('#MusteriID').val(this.value)
+        });
+
+
+
     </script>
 }
