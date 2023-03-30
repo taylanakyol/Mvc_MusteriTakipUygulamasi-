@@ -13,18 +13,24 @@
         <div class="row">
             @foreach (var item in Model)
             {
-                <div class="col-sm-3 mx-auto">
+                <div class="col-sm-3 mx-auto" >
 
-                    <div class="card text-white bg-flat-color-3">
+                    <div class="card text-white bg-flat-color-3 height-125">
                         <div class="card-body">
-                            
-                            
+
+
                             <div class="card-left pt-1 float-left">
-                                <a href="/MusteriOzet/DetailedList/@item.MusteriID"><p class="text-body mt-1 m-0"> <strong>@item.Unvan</strong>  </p></a> 
+                                <a href="/MusteriOzet/DetailedList/@item.MusteriID"><p class="text-body mt-1 m-0"> <strong>@item.Unvan</strong>  </p></a>
                             </div>
-                            <div class="card-right float-right text-right">
-                                <i class="icon fade-5 icon-lg pe-7s-users"></i>
+                            @*<div class="card-right float-right text-right">
+                                    <i class="icon fade-5 icon-lg pe-7s-users"></i>
+                                </div>*@
+                            <div class="card-right float-left text-right">
+                                <a href="/MusteriOzet/DetailedList/@item.MusteriID"   aria-haspopup="true" aria-expanded="false">
+                                    <img class="user-avatar rounded-circle height-93"  src="@item.IconLogo" alt="User Avatar">
+                                </a>
                             </div>
+                            
                         </div>
                     </div>
 

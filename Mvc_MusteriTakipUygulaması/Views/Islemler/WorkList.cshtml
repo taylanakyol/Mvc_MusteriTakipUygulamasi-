@@ -1,0 +1,71 @@
+﻿@using Mvc_MusteriTakipUygulaması.Models
+@model List<WorkList>
+
+
+@{
+    ViewData["Title"] = "WorkList";
+    Layout = "~/Views/Shared/_MusteriTakipLayout.cshtml";
+}
+
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <div class="card">
+                    <div class="card-header">
+                        <strong class="card-title">İş Listesi</strong>
+                    </div>
+                    <div class="table-stats order-table ov-h">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    
+                                    <th>Tarih</th>
+                                    <th>Yapılacak İş</th>
+                                    <th>Kurum Adı</th>
+                                    <th>İşi Takip Eden Personel</th>
+                                    <th>Teslim Edilecek Yetkili</th>
+                                    <th>Hizmet Bedeli</th>
+                                    <th>Harç Bedeli</th>
+                                    <th>Toplam Fatura Bedeli</th>
+                                    <th style="text-align: center">Sil</th>
+                                    <th style="text-align: center">Güncelle</th>
+                                    <th style="text-align: center">Detaylar</th>
+                                    
+
+
+                                </tr>
+                            </thead>
+
+                            @foreach (var item in Model.OrderBy(x => x.Tarih))
+                            {
+                                <tbody>
+                                    <tr>
+                                       
+                                        <td> @item.Tarih.ToShortDateString() </td>
+                                        <td> @item.YapilacakIs </td>
+                                        <td> @item.KurumAdi </td>
+                                        <td> @item.IsiTakipEdenPersonel </td>
+                                        <td> @item.IsinTeslimEdilecegiYetkili </td>
+                                        <td> @item.HizmetBedeli </td>
+                                        <td> @item.HarcBedeli </td>
+                                        <td> @item.ToplamFaturaBedeli </td>
+                                        <td style="text-align: center"> <a asp-controller="Islemler" asp-action="DeleteClient" asp-route-id="@item.WorkID" class="badge badge-danger">Sil</a> </td>
+                                        <td style="text-align: center"> <a asp-controller="Islemler" asp-action="GetClient" asp-route-id="@item.WorkID" class="badge badge-complete">Güncelle</a> </td>
+                                        <td style="text-align: center"> <a asp-controller="Islemler" asp-action="ClientDetailTable" asp-route-id="@item.WorkID" class="badge badge-info">Detaylar</a> </td>
+                                        
+
+                                    </tr>
+                                </tbody>
+                            }
+                        </table>
+                    </div>
+                </div>
+                <a asp-controller="Islemler" asp-action="YeniIsEkle" class="btn btn-info mx-auto">Yeni İş Ekle</a>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+

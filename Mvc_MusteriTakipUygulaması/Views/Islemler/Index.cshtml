@@ -13,7 +13,7 @@
             <div class="col-lg-10 mx-auto">
                 <div class="card">
                     <div class="card-header">
-                        <strong class="card-title">Kullanıcı Listesi</strong>
+                        <strong class="card-title">Müşteri/Tedarikçi Listesi</strong>
                     </div>
                     <div class="table-stats order-table ov-h">
                         <table class="table">
@@ -25,10 +25,12 @@
                                     <th>Web Sitesi</th>
                                     <th>Mail</th>
                                     <th>İmza Yetkilisi</th>
-                                    <th>Tarih</th>
                                     <th style="text-align: center">Sil</th>
                                     <th style="text-align: center">Güncelle</th>
                                     <th style="text-align: center">Detaylar</th>
+                                    <th style="text-align: center">Yeni İş</th>
+
+
                                 </tr>
                             </thead>
 
@@ -42,10 +44,11 @@
                                         <td style="text-transform: none"> @item.WebSitesi </td>
                                         <td style="text-transform: none"> @item.Email </td>
                                         <td> @item.ImzaYetkilisiAdiSoyadi1 </td>
-                                        <td> @item.Tarih.ToShortDateString() </td>
-                                        <td style="text-align: center"> <a asp-controller="Islemler" asp-action="DeleteClient" asp-route-id="@item.MusteriID" class="badge badge-danger">Sil</a> </td>     
-                                        <td style="text-align: center"> <a asp-controller="Islemler" asp-action="GetClient" asp-route-id="@item.MusteriID" class="badge badge-complete">Güncelle</a> </td>          
-                                        <td style="text-align: center"> <a asp-controller="Islemler" asp-action="ClientDetailTable" asp-route-id="@item.MusteriID" class="badge badge-info">Detaylar</a> </td>          
+                                        <td style="text-align: center"> <a asp-controller="Islemler" asp-action="DeleteClient" asp-route-id="@item.MusteriID" class="badge badge-danger">Sil</a> </td>
+                                        <td style="text-align: center"> <a asp-controller="Islemler" asp-action="GetClient" asp-route-id="@item.MusteriID" class="badge badge-complete">Güncelle</a> </td>
+                                        <td style="text-align: center"> <a asp-controller="Islemler" asp-action="ClientDetailTable" asp-route-id="@item.MusteriID" class="badge badge-info">Detaylar</a> </td>
+                                        <td style="text-align: center"> <a asp-controller="Islemler" asp-action="YeniIsEkle" asp-route-id="@item.MusteriID" class="badge badge-info">İş Ekle</a> </td>
+
                                     </tr>
                                 </tbody>
                             }
@@ -53,6 +56,7 @@
                     </div>
                 </div>
                 <a asp-controller="Islemler" asp-action="AddClient" class="btn btn-info mx-auto">Yeni Müşteri Ekle</a>
+                <a asp-controller="Islemler" asp-action="WorkList" class="btn btn-info mx-auto">Tüm İşleri Görüntüle</a>
 
             </div>
         </div>

@@ -87,7 +87,7 @@
                     </li>
                     <li class="menu-title">Ana Menüler</li><!-- /.menu-title -->
                     <li class="menu-item-has-children dropdown">
-                        <a href="/MusteriOzet/Index/" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-user-o"></i>Müşteri Listesi</a>
+                        <a href="/MusteriOzet/Index/" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-user-o"></i>Müşteri / Tedarikçi</a>
                     </li>
                     <li class="menu-item-has-children dropdown">
                         <a href="/Islemler/Index/" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>İşlemler</a>
@@ -158,8 +158,10 @@
     <script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/moment.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@3.9.0/dist/fullcalendar.min.js"></script>
     <script src="~/master/assets/js/init/fullcalendar-init.js"></script>
+    
+@await RenderSectionAsync("Scripts", required: false)
 
-    <!--Local Stuff-->
+<!--Local Stuff-->
     <script>
         jQuery(document).ready(function ($) {
             "use strict";

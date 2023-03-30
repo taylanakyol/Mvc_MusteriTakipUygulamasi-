@@ -12,7 +12,7 @@ namespace Mvc_MusteriTakipUygulaması.Models
 
         public DbSet<Admin> Admins { get; set; }
         public DbSet<Client> Clients { get; set; }
-
-
+        public DbSet<WorkList> WorkLists { get; set; }
+        
     }
 }

@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Mvc_MusteriTakipUygulaması.Models;
+using Mvc_MusteriTakipUygulaması.Models.ResponseModel;
 
 namespace Mvc_MusteriTakipUygulaması.Controllers
 {
@@ -70,10 +72,11 @@ namespace Mvc_MusteriTakipUygulaması.Controllers
             x.IletisimYetkilisiAdiSoyadi3 = p.IletisimYetkilisiAdiSoyadi3;
             x.Marka = p.Marka;
             x.Tarih = p.Tarih;
+            x.IconLogo = p.IconLogo;
 
             c.SaveChanges();
             return RedirectToAction("Index", "Islemler");
-            
+
         }
 
         public IActionResult ClientDetailTable(int id)
@@ -84,6 +87,48 @@ namespace Mvc_MusteriTakipUygulaması.Controllers
         }
 
 
+        public IActionResult WorkList()
+        {
+            var work = c.WorkLists.ToList();
+            return View(work);
+        }
+
+
+        [HttpGet]
+        public IActionResult YeniIsEkle(int? id)
+        {
+            ViewBag.ClientId = id.HasValue;
+
+            return View();
+        }
+
+
+        [HttpPost]
+        public IActionResult YeniIsEkle(WorkList p)
+        {
+
+            var ekle = c.Clients.SingleOrDefault(x => x.MusteriID == p.MusteriID);
+
+            if (ekle != null)
+            {
+                c.WorkLists.Add(p);
+                c.SaveChanges();
+            }
+
+            return RedirectToAction("WorkList");
+        }
+
+
+        [HttpGet]
+        public IActionResult GetClientList()
+        {
+            var data = c.Clients.Select(x => new ClientComboModel()
+            {
+                Id = x.MusteriID,
+                ClientName = x.Unvan
+            }).ToList();
+            return Ok(data);
+        }
 
     }
 }
