@@ -31,7 +31,7 @@
                                     <th>Toplam Fatura Bedeli</th>
                                     <th style="text-align: center">Sil</th>
                                     <th style="text-align: center">Güncelle</th>
-                                    <th style="text-align: center">Detaylar</th>
+                                   
                                     
 
 
@@ -52,9 +52,9 @@
                                         <td> @item.HizmetBedeli </td>
                                         <td> @item.HarcBedeli </td>
                                         <td> @item.ToplamFaturaBedeli </td>
-                                        <td style="text-align: center"> <a asp-controller="Islemler" asp-action="DeleteClient" asp-route-id="@item.WorkID" class="badge badge-danger">Sil</a> </td>
-                                        <td style="text-align: center"> <a asp-controller="Islemler" asp-action="GetClient" asp-route-id="@item.WorkID" class="badge badge-complete">Güncelle</a> </td>
-                                        <td style="text-align: center"> <a asp-controller="Islemler" asp-action="ClientDetailTable" asp-route-id="@item.WorkID" class="badge badge-info">Detaylar</a> </td>
+                                        <td style="text-align: center"> <a asp-controller="Islemler" asp-action="DeleteWork" asp-route-id="@item.WorkID" class="badge badge-danger">Sil</a> </td>
+                                        <td style="text-align: center"> <a asp-controller="Islemler" asp-action="GetWork" asp-route-id="@item.MusteriID" class="badge badge-complete">Güncelle</a> </td>
+                                        
                                         
 
                                     </tr>

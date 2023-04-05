@@ -1,0 +1,103 @@
+﻿@model Mvc_MusteriTakipUygulaması.Models.WorkList
+
+
+@{
+    ViewData["Title"] = "GetWork";
+    Layout = "~/Views/Shared/_MusteriTakipLayout.cshtml";
+}
+
+<div class="content">
+    <form method="post">
+        <input asp-for="MusteriID" type="hidden" placeholder="Tarih giriniz" class="form-control" required="">
+        <div class="col-lg-6 mx-auto">
+            <div class="card">
+                <div class="card-header"><strong>İş Güncelleme Formu</strong></div>
+                <div class="card-body card-block">
+
+                    <div class="form-group">
+                        <label asp-for="WorkID" class=" form-control-label"> <strong>Firma</strong> </label>
+                        <select asp-for="WorkID" class="form-control" name="firmList" id="cmbFirmList">
+                        </select>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label asp-for="Tarih" class=" form-control-label"> <strong>Tarih</strong> </label>
+                        <input asp-for="Tarih" type="date" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="YapilacakIs" class=" form-control-label"><strong>Yapılacak İş</strong></label>
+                        <input asp-for="YapilacakIs" type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="KurumAdi" class=" form-control-label"><strong>Kurum</strong></label>
+                        <input asp-for="KurumAdi" type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="IsiTakipEdenPersonel" class=" form-control-label"><strong>İşi Takip Eden Personel</strong></label>
+                        <input asp-for="IsiTakipEdenPersonel" type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="IsinTeslimEdilecegiYetkili" class=" form-control-label"><strong>Teslim Edilecek Yetkisi</strong></label>
+                        <input asp-for="IsinTeslimEdilecegiYetkili" type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="HizmetBedeli" class=" form-control-label"><strong>Hizmet Bedeli</strong></label>
+                        <input asp-for="HizmetBedeli" type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="HarcBedeli" class=" form-control-label"><strong>Harç Bedeli</strong></label>
+                        <input asp-for="HarcBedeli" type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ToplamFaturaBedeli" class=" form-control-label"><strong>Toplam Fatura Bedeli</strong></label>
+                        <input asp-for="ToplamFaturaBedeli" type="text" class="form-control">
+                    </div>
+
+                </div>
+                <button asp-controller="Islemler" asp-action="UpdateWork" type="submit" class="btn btn-info mt-3 align-items-center">Güncelle</button>
+
+            </div>
+
+        </div>
+
+
+    </form>
+
+
+</div>
+
+@*@section Scripts{
+
+    <script>
+
+        jQuery(document).ready(function () {
+            GetClientList()
+        });
+
+        function GetClientList() {
+            jQuery.ajax({
+                url: "/Islemler/GetClientList",
+                type: 'GET',
+                success: function (res) {
+                    if (res != undefined || res != null) {
+                        jQuery('#cmbFirmList').html('');
+
+                        console.log(res)
+
+                        jQuery.each(res, function (index, value) {
+                            jQuery('#cmbFirmList').append('<option value="' + value.id + '"> ' + value.clientName + ' </option> ');
+                        })
+                    }
+                }
+            });
+        }
+
+        jQuery('#cmbFirmList').on('change', function(){
+            jQuery('#MusteriID').val(this.value)
+        });
+
+
+
+    </script>
+}*@

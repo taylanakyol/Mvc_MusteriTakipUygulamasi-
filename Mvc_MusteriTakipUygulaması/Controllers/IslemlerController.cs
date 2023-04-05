@@ -33,12 +33,13 @@ namespace Mvc_MusteriTakipUygulaması.Controllers
 
         public IActionResult DeleteClient(int id)
         {
-            var client = c.Clients.Find(id);
+            var client = c.Clients.FirstOrDefault(x => x.MusteriID == id);
             c.Clients.Remove(client);
             c.SaveChanges();
             return RedirectToAction("Index");
 
         }
+
 
 
         public IActionResult GetClient(int id)
@@ -129,6 +130,48 @@ namespace Mvc_MusteriTakipUygulaması.Controllers
             }).ToList();
             return Ok(data);
         }
+
+
+
+        public IActionResult DeleteWork(int id)
+        {
+            
+            var work = c.WorkLists.FirstOrDefault(x => x.WorkID == id);
+            c.WorkLists.Remove(work);
+            c.SaveChanges();
+            return RedirectToAction("WorkList");
+
+        }
+
+
+
+        public IActionResult GetWork(int id)
+        {
+
+            var getWork = c.WorkLists.FirstOrDefault(x => x.WorkID == id);
+            return View("GetWork", getWork);
+
+        }
+
+
+        public IActionResult UpdateWork(WorkList p)
+        {
+
+            var x = c.WorkLists.Find(p.MusteriID);
+            x.Tarih = p.Tarih;
+            x.YapilacakIs = p.YapilacakIs;
+            x.KurumAdi = p.KurumAdi;
+            x.IsiTakipEdenPersonel = p.IsiTakipEdenPersonel;
+            x.IsinTeslimEdilecegiYetkili = p.IsinTeslimEdilecegiYetkili;
+            x.HizmetBedeli = p.HizmetBedeli;
+            x.HarcBedeli = p.HarcBedeli;
+            x.ToplamFaturaBedeli = p.ToplamFaturaBedeli;
+            
+            c.SaveChanges();
+            return RedirectToAction("WorkList", "Islemler");
+
+        }
+        
 
     }
 }
