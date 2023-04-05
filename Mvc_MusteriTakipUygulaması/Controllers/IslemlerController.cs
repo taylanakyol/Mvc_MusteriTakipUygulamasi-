@@ -157,17 +157,21 @@ namespace Mvc_MusteriTakipUygulaması.Controllers
         public IActionResult UpdateWork(WorkList p)
         {
 
-            var x = c.WorkLists.Find(p.MusteriID);
-            x.Tarih = p.Tarih;
-            x.YapilacakIs = p.YapilacakIs;
-            x.KurumAdi = p.KurumAdi;
-            x.IsiTakipEdenPersonel = p.IsiTakipEdenPersonel;
-            x.IsinTeslimEdilecegiYetkili = p.IsinTeslimEdilecegiYetkili;
-            x.HizmetBedeli = p.HizmetBedeli;
-            x.HarcBedeli = p.HarcBedeli;
-            x.ToplamFaturaBedeli = p.ToplamFaturaBedeli;
-            
-            c.SaveChanges();
+            var x = c.WorkLists.FirstOrDefault(x => x.WorkID == p.WorkID);
+            if (x!= null)
+            {
+                x.MusteriID = p.MusteriID;
+                x.Tarih = p.Tarih;
+                x.YapilacakIs = p.YapilacakIs;
+                x.KurumAdi = p.KurumAdi;
+                x.IsiTakipEdenPersonel = p.IsiTakipEdenPersonel;
+                x.IsinTeslimEdilecegiYetkili = p.IsinTeslimEdilecegiYetkili;
+                x.HizmetBedeli = p.HizmetBedeli;
+                x.HarcBedeli = p.HarcBedeli;
+                x.ToplamFaturaBedeli = p.ToplamFaturaBedeli;
+
+                c.SaveChanges();
+            }
             return RedirectToAction("WorkList", "Islemler");
 
         }

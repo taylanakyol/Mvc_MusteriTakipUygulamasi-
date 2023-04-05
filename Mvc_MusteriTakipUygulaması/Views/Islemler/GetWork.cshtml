@@ -9,14 +9,15 @@
 <div class="content">
     <form method="post">
         <input asp-for="MusteriID" type="hidden" placeholder="Tarih giriniz" class="form-control" required="">
+        <input asp-for="WorkID" type="hidden" >
         <div class="col-lg-6 mx-auto">
             <div class="card">
                 <div class="card-header"><strong>İş Güncelleme Formu</strong></div>
                 <div class="card-body card-block">
 
                     <div class="form-group">
-                        <label asp-for="WorkID" class=" form-control-label"> <strong>Firma</strong> </label>
-                        <select asp-for="WorkID" class="form-control" name="firmList" id="cmbFirmList">
+                        <label class=" form-control-label"> <strong>Firma</strong> </label>
+                        <select class="form-control" name="firmList" id="cmbFirmList">
                         </select>
                     </div>
 
@@ -67,12 +68,15 @@
 
 </div>
 
-@*@section Scripts{
+@section Scripts{
 
     <script>
 
         jQuery(document).ready(function () {
             GetClientList()
+            
+
+
         });
 
         function GetClientList() {
@@ -83,21 +87,24 @@
                     if (res != undefined || res != null) {
                         jQuery('#cmbFirmList').html('');
 
-                        console.log(res)
 
                         jQuery.each(res, function (index, value) {
                             jQuery('#cmbFirmList').append('<option value="' + value.id + '"> ' + value.clientName + ' </option> ');
                         })
+
+
+                        var musteriId = jQuery('#MusteriID').val();
+                        jQuery('#cmbFirmList').val(musteriId);
                     }
                 }
             });
         }
 
-        jQuery('#cmbFirmList').on('change', function(){
+        jQuery('#cmbFirmList').on('change', function () {
             jQuery('#MusteriID').val(this.value)
         });
 
 
 
     </script>
-}*@
+}
