@@ -6,7 +6,10 @@ namespace Mvc_MusteriTakipUygulaması.Models
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("server=.; database=DbMusteriTakip; integrated security=true; Encrypt=False;");
+            // 
+
+            optionsBuilder.UseSqlServer("Server=mssql02.trwww.com;Database=dmrddmsc_DbMusteriTakip;User Id=saydogdu;Password=b$Q520x8h; Encrypt=False;");
+            // optionsBuilder.UseSqlServer("server=.; database=DbMusteriTakip; integrated security=true; Encrypt=False;");
 
         }
 

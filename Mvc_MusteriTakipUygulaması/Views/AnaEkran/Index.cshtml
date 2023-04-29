@@ -1,0 +1,135 @@
+﻿@using Mvc_MusteriTakipUygulaması.Models
+@model List<WorkList>
+
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_MusteriTakipLayout.cshtml";
+}
+
+<div class="content " style="padding: 50px; ">
+    <div class="animated fadeIn ">
+
+
+
+        <div class="row">
+
+            <div class="col-sm-8">
+                <div class="row" style="justify-content: center; margin-top:auto ">
+
+                    <div class="card text-white bg-flat-color-3 col-sm-3 p-1 m-3" style="min-height:100px">
+                        <div class="card-body">
+                            <div class="card-left  float-left">
+                                <a asp-controller="MusteriOzet" asp-action="Index"><p class="text-body mt-1 m-0"> <strong>Müşteri</strong> </p></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card text-white bg-flat-color-3 height-125 col-sm-3 p-1 m-3" style="min-height:100px">
+                        <div class="card-body">
+                            <div class="card-left  float-left">
+                                <a asp-controller="MusteriOzet" asp-action="Index"><p class="text-body mt-1 m-0"> <strong>Tedarikçi</strong>  </p></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card text-white bg-flat-color-3 height-125 col-sm-3 p-1 m-3" style="min-height:100px">
+                        <div class="card-body">
+                            <div class="card-left  float-left">
+                                <a asp-controller="Islemler" asp-action="WorkList"><p class="text-body mt-1 m-0 "> <strong>Yapılacak İşler</strong>  </p></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card text-white bg-flat-color-3 height-125 col-sm-3 p-1 m-3" style="min-height:100px">
+                        <div class="card-body">
+                            <div class="card-left  float-left">
+                                <a asp-controller="UserList" asp-action="Index"><p class="text-body mt-1 m-0"> <strong>Kullanıcı Tanımlama</strong>  </p></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card text-white bg-flat-color-3 height-125 col-sm-3 p-1 m-3" style="min-height:100px">
+                        <div class="card-body">
+                            <div class="card-left  float-left">
+                                <a href="#"><p class="text-body mt-1 m-0"> <strong>Rapor</strong>  </p></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card text-white bg-flat-color-3 height-125 col-sm-3 p-1 m-3" style="min-height:100px">
+                        <div class="card-body">
+                            <div class="card-left  float-left">
+                                <a asp-controller="Login" asp-action="LogOut"><p class="text-body mt-1 m-0"> <strong>Çıkış</strong>  </p></a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+
+            @*<div class="col-sm-3 offset-sm-1" style="border-style: dashed">
+
+                <div class="row" style="justify-content: center; margin-top:auto ">
+
+                    <div class="card text-white bg-flat-color-3 height-125 col-sm-4 p-3 m-3">
+                        <div class="card-body">
+                            <div class="card-left pt-1 float-left">
+                                <a href="#"><p class="text-body mt-1 m-0"> <strong></strong>  </p></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card text-white bg-flat-color-3 height-125 col-sm-4 p-3 m-3">
+                        <div class="card-body">
+                            <div class="card-left pt-1 float-left">
+                                <a href="#"><p class="text-body mt-1 m-0"> <strong></strong>  </p></a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>*@
+
+
+            <div class="col-sm-3 offset-sm-1">
+                <div class="card">
+                    <div class="card-header">
+                        <strong class="card-title">Tarihi Yaklaşan İşler</strong>
+                    </div>
+                    <div class="table-stats order-table ov-h">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Müşteri Adı</th>
+                                    <th>Tarih</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.Where(x => x.Tarih >= DateTime.Today).OrderBy(x => x.Tarih))
+                                {
+                                    <tr>
+                                        <td>@item.Client.Unvan</td>
+                                        <td>@item.Tarih.ToShortDateString()</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+
+    </div>
+
+
+
+
+</div>

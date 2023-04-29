@@ -33,7 +33,7 @@ namespace Mvc_MusteriTakipUygulaması.Controllers
                 var userIdentity = new ClaimsIdentity(claims, "Login");
                 ClaimsPrincipal principal = new ClaimsPrincipal(userIdentity);
                 await HttpContext.SignInAsync(principal);
-                return RedirectToAction("Index", "MusteriOzet");
+                return RedirectToAction("Index", "AnaEkran");
             }
 
             return View();
